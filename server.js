@@ -28,9 +28,11 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'dist/brighthub-frontend/browser')));
 
 // Catch-all handler to serve index.html for all routes
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/brighthub-frontend/browser/index.html'));
 });
+
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
